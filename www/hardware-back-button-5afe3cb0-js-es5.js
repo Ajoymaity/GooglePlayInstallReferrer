@@ -1,0 +1,15 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["hardware-back-button-5afe3cb0-js"],{
+
+/***/ "./node_modules/@ionic/core/dist/esm-es5/hardware-back-button-5afe3cb0.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm-es5/hardware-back-button-5afe3cb0.js ***!
+  \********************************************************************************/
+/*! exports provided: startHardwareBackButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"startHardwareBackButton\", function() { return startHardwareBackButton; });\n/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ \"./node_modules/tslib/tslib.es6.js\");\n\nvar startHardwareBackButton = function () {\n    var doc = document;\n    var busy = false;\n    doc.addEventListener('backbutton', function () {\n        if (busy) {\n            return;\n        }\n        var handlers = [];\n        var ev = new CustomEvent('ionBackButton', {\n            bubbles: false,\n            detail: {\n                register: function (priority, handler) {\n                    handlers.push({ priority: priority, handler: handler });\n                }\n            }\n        });\n        doc.dispatchEvent(ev);\n        if (handlers.length > 0) {\n            var selectedPriority_1 = Number.MIN_SAFE_INTEGER;\n            var selectedHandler_1;\n            handlers.forEach(function (_a) {\n                var priority = _a.priority, handler = _a.handler;\n                if (priority >= selectedPriority_1) {\n                    selectedPriority_1 = priority;\n                    selectedHandler_1 = handler;\n                }\n            });\n            busy = true;\n            executeAction(selectedHandler_1).then(function () { return busy = false; });\n        }\n    });\n};\nvar executeAction = function (handler) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__[\"__awaiter\"])(void 0, void 0, void 0, function () {\n    var result, e_1;\n    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__[\"__generator\"])(this, function (_a) {\n        switch (_a.label) {\n            case 0:\n                _a.trys.push([0, 3, , 4]);\n                if (!handler) return [3 /*break*/, 2];\n                result = handler();\n                if (!(result != null)) return [3 /*break*/, 2];\n                return [4 /*yield*/, result];\n            case 1:\n                _a.sent();\n                _a.label = 2;\n            case 2: return [3 /*break*/, 4];\n            case 3:\n                e_1 = _a.sent();\n                console.error(e_1);\n                return [3 /*break*/, 4];\n            case 4: return [2 /*return*/];\n        }\n    });\n}); };\n\n\n\n//# sourceURL=webpack:///./node_modules/@ionic/core/dist/esm-es5/hardware-back-button-5afe3cb0.js?");
+
+/***/ })
+
+}]);
